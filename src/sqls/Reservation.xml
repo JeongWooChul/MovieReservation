@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="Reservation">
+  
+ <insert id="addReserv" parameterType="com.model.ReservDto">
+ 	INSERT INTO MOVIE_RESERVATION(ID, IMGURL, TITLE, THEATER, MOVTIME, REVDATE, DEL)
+	VALUES(#{id}, #{imgUrl}, #{title}, #{theater}, #{movTime}, SYSDATE, 0)  
+ </insert>
+  
+  
+ <select id="getReservList" parameterType="String" resultType="com.model.ReservDto">
+ 	 SELECT	ID, IMGURL, TITLE, THEATER, MOVTIME, REVDATE, DEL 
+ 	 FROM MOVIE_RESERVATION
+ 	 WHERE ID=#{id}
+ </select>
+  
+ </mapper>
